@@ -1,46 +1,40 @@
 {
-    "current_id": 8,
+    "current_id": 3,
     "unique_fields": {
         "id": [
-            5,
-            6,
-            7
+            0,
+            1,
+            2
         ],
         "name": [
-            "113",
-            "aa113",
-            "aa123"
+            "testing_0",
+            "testing_3",
+            "testing_1706394347051"
         ]
     },
     "items": {
-        "113": {
-            "id": 5,
-            "name": "113",
-            "url": "http://exampleboturl.com",
+        "testing_0": {
+            "id": 0,
+            "name": "testing_0",
+            "url": "http://example.com",
             "intents": [
-                "play_sound",
-                "tell_joke",
+                "another_intent"
+            ]
+        },
+        "testing_3": {
+            "id": 1,
+            "name": "testing_3",
+            "url": "http://example.com",
+            "intents": [
                 "disconnect"
             ]
         },
-        "aa113": {
-            "id": 6,
-            "name": "aa113",
-            "url": "http://exampleboturl.com",
+        "testing_1706394347051": {
+            "id": 2,
+            "name": "testing_1706394347051",
+            "url": "http://example.com",
             "intents": [
-                "play_sound",
-                "tell_joke",
-                "disconnect"
-            ]
-        },
-        "aa123": {
-            "id": 7,
-            "name": "aa123",
-            "url": "http://exampleboturl.com",
-            "intents": [
-                "play_sound",
-                "tell_joke",
-                "disconnect"
+                "another_intent"
             ]
         }
     }
