@@ -1,0 +1,47 @@
+{
+    "current_id": 8,
+    "unique_fields": {
+        "id": [
+            5,
+            6,
+            7
+        ],
+        "name": [
+            "113",
+            "aa113",
+            "aa123"
+        ]
+    },
+    "items": {
+        "113": {
+            "id": 5,
+            "name": "113",
+            "url": "http://exampleboturl.com",
+            "intents": [
+                "play_sound",
+                "tell_joke",
+                "disconnect"
+            ]
+        },
+        "aa113": {
+            "id": 6,
+            "name": "aa113",
+            "url": "http://exampleboturl.com",
+            "intents": [
+                "play_sound",
+                "tell_joke",
+                "disconnect"
+            ]
+        },
+        "aa123": {
+            "id": 7,
+            "name": "aa123",
+            "url": "http://exampleboturl.com",
+            "intents": [
+                "play_sound",
+                "tell_joke",
+                "disconnect"
+            ]
+        }
+    }
+}
