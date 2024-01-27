@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, validate, validates, ValidationError
+from common.common import ALLOWED_INTENTS
 
-ALLOWED_INTENTS = ['play_sound', 'tell_joke', 'disconnect', 'another_intent']
 
 class BotSchema(Schema):
     name = fields.Str(required=True, validate=validate.Length(min=1))
