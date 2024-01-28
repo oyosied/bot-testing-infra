@@ -124,5 +124,4 @@ class DatabaseHandler:
 
         except KeyError as e:
             raise KeyError(f"Couldn't find '{item_id}', skipping ....")
-        except Exception as e:
-            raise Exception(f"Could not update '{item_id}', error:{e}")
+
