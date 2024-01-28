@@ -27,6 +27,10 @@ def client():
 def bot_manager(client):
     return BotManager(client=client)
 
+@pytest.fixture(scope="session", autouse=True)
+def clean_up(bot_manager):
+    yield
+    bot_manager.delete_created()
 
 def pass_if_failed(test_func):
     @functools.wraps(test_func)
