@@ -46,3 +46,9 @@ class TestsBotAPI:
                                        intents=[random.choice(ALLOWED_INTENTS)])
         bot_manager.create_bot(bot_properties=bot_properties)
         bot_manager.update_bot(bot_properties=bot_properties)
+
+    def test_delete_bot(self, bot_manager):
+        bot_properties = BotProperties(name=f"testing_{str(int(time.time() * 1000))}", url="http://example.com",
+                                       intents=[random.choice(ALLOWED_INTENTS)])
+        bot_manager.create_bot(bot_properties=bot_properties)
+        bot_manager.delete_bot(bot_name=bot_properties.name)
