@@ -10,36 +10,42 @@ class BotManager:
         self.client = client
         self.created_bots = []
 
-    def get_bot(self, bot_name):
+    def get_bot(self, bot_name, expected_status_code=200):
         response = self.client.get(f"/bot/{bot_name}")
         logger.info(f"Request:'/bot/{bot_name}'\n"
-                    f"Response:{response.json}")
-        assert response.status_code == 200
+                    f"Response:{response.json}\n"
+                    f"Status code:{response.status_code}")
+        assert response.status_code == expected_status_code
 
-    def create_bot(self, bot_properties: BotProperties):
+    def create_bot(self, bot_properties: BotProperties, expected_status_code=200):
         response = self.client.post(f"/bot", json=bot_properties.to_dict())
         logger.info(f"Request:'/bot'\n"
                     f"Response:{response.json}\n"
-                    f"Body:{bot_properties.to_dict()}")
-        assert response.status_code == 200
-        self.created_bots.append(bot_properties.name)
+                    f"Body:{bot_properties.to_dict()}\n"
+                    f"Status code:{response.status_code}")
+        assert response.status_code == expected_status_code
+        if response.status_code == 200:
+            self.created_bots.append(bot_properties.name)
 
-
-    def update_bot(self, bot_properties: BotProperties):
+    def update_bot(self, bot_properties: BotProperties, expected_status_code=200):
         response = self.client.put(f"/bot/{bot_properties.name}", json=bot_properties.to_dict())
         logger.info(f"Request:'/bot'\n"
                     f"Response:{response.json}\n"
-                    f"Body:{bot_properties.to_dict()}")
-        assert response.status_code == 200
+                    f"Body:{bot_properties.to_dict()}\n"
+                    f"Status code:{response.status_code}")
+        assert response.status_code == expected_status_code
         self.created_bots.append(bot_properties.name)
 
-    def delete_bot(self, bot_name):
+    def delete_bot(self, bot_name, expected_status_code=200):
         response = self.client.delete(f"/bot/{bot_name}")
         logger.info(f"Request:'/bot/{bot_name}'\n"
-                    f"Response:{response.json}")
-        assert response.status_code == 200
-        self.created_bots.remove(bot_name)
-
+                    f"Response:{response.json}\n"
+                    f"Status code:{response.status_code}")
+        assert response.status_code == expected_status_code
+        try:
+            self.created_bots.remove(bot_name)
+        except:
+            pass
 
     def delete_created(self):
         for bot_name in self.created_bots:
